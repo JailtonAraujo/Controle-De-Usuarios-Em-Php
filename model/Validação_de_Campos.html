@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-group{
+            margin: 15px 0px;
+            display: flex;
+            flex-direction: column;
+            
+        }
+
+        .form-control{
+            display: flex;
+            flex-direction: column;
+        }
+       
+            input{
+                display: block;
+            }
+
+       
+    </style>
+   
+</head>
+<body>
+    <form action="" class="form-control">
+        <div class="form-group">
+            <input type="text" id="login">
+            <span></span>
+        </div>
+        <div class="form-group">
+            <input type="text" id="senha">
+            <span></span>
+        </div>
+        <button type="submit" id="btn">click</button>
+    </form>
+</body>
+
+<script>
+
+    let formControl = document.querySelector('.form-control');
+    let inputLogin = document.querySelector('#login');
+    let inputSenha = document.querySelector('#senha');
+
+    formControl.addEventListener('submit',(e)=>{
+        
+        if(inputLogin.value.trim() != "" && inputSenha.value.trim() != ""){
+            /*Todos os campos foram preenchidos e o formulario é submetido.*/
+        }else{
+            /*Os campos não foram preenchidos corretamente, e os inputs são submetidos as validações.*/
+            e.preventDefault();
+
+            if(inputLogin.value.trim() == ""){
+            InvalidInput(inputLogin);
+            inputLogin.addEventListener('input',()=>{
+                if(inputLogin.value.trim()==""){
+                    
+                    InvalidInput(inputLogin);
+                }else{
+                    ValidInput(inputLogin);
+                }
+            });
+        }else{
+            ValidInput(inputLogin);
+        }
+            if(inputSenha.value.trim() == ""){
+                InvalidInput(inputSenha);
+                inputSenha.addEventListener('input',()=>{
+                    if(inputSenha.value.trim() == ""){
+                        InvalidInput(inputSenha);
+                    }else{
+                        ValidInput(inputSenha);
+                    }
+                });
+            }else{
+                ValidInput(inputSenha);
+            }
+
+        }
+    });
+
+    function InvalidInput(input){
+        let form_group = input.parentElement;
+        form_group.querySelector('input').style.background = 'red';
+        let span = form_group.querySelector('span');
+        span.innerText = 'Campo obrigatorio!';
+    }
+
+    function ValidInput(input){
+        let form_group = input.parentElement;
+        form_group.querySelector('input').style.background = 'green';
+        let span = form_group.querySelector('span');
+        span.innerText = 'Ok!';
+    }
+
+</script>
+</html>

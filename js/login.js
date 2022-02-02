@@ -2,14 +2,14 @@ const input_login = document.querySelector('input#login');
 const input_senha = document.querySelector('input#senha');
 const form = document.querySelector('form');
 
-input_login.addEventListener('input', (e)=>{
-
-    //e.defaultPrevented;
+input_login.addEventListener('input', ()=>{
     
     let loginValue = input_login.value.trim();
 
     if(loginValue === ""){
         invalid(input_login, "Campo obrigatorio!");
+        
+        
     }else{
         valid(input_login, "Ok!");
     }
@@ -21,9 +21,11 @@ input_senha.addEventListener('input', (e)=>{
 
     if(senhaValue === ""){
         invalid(input_senha, "Campo obrigatorio!");
+        
 
     }else if(senhaValue.length < 8){
         invalid(input_senha, "A senha deve ter mais que 8 carácteres!");
+        
     }
     
     else{
@@ -81,3 +83,4 @@ function valid(input, msg){
     const img = form_control.querySelector('#icon img');
     img.src = 'img/success-icon.svg';
 }
+
