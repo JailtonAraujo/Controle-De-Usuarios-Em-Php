@@ -10,7 +10,7 @@
 <body>
 
     <div class="container">
-        <form action="" id="form" method="post">
+        <form action="logar.php" id="form" method="post">
             <header><h2>LOGIN</h2></header>
             
             <div class="form-control">
