@@ -28,7 +28,9 @@
                 <small></small>
             </div>
             <input id="btn" type="submit" value="Logar">
+            <p id = "msg-alert"><?php session_start(); echo $_SESSION['msg'];?></p>
         </form>
+       
     </div>
     <script src="js/login.js"></script>
 </body>

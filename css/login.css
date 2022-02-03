@@ -103,5 +103,11 @@ div.form-control small{
     position: absolute;
 }
 
+p#msg-alert{
+    color:red;
+    position: relative;
+    top: 20px;
+}
+
 
 
