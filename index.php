@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +15,7 @@
 
     <div class="container">
         <form action="logar.php" id="form" method="post">
+            
             <header><h2>LOGIN</h2></header>
             
             <div class="form-control">
@@ -28,7 +33,17 @@
                 <small></small>
             </div>
             <input id="btn" type="submit" value="Logar">
+<<<<<<< Updated upstream
             <p id = "msg-alert"><?php session_start(); echo $_SESSION['msg'];?></p>
+=======
+            <?php 
+                if(isset($_SESSION['nao-autenticado'])):
+            ?>
+                <p id = "msg-alert">Login ou senha incorretos, confira-os!</p>
+            <?php
+                endif;
+            ?>
+>>>>>>> Stashed changes
         </form>
        
     </div>
