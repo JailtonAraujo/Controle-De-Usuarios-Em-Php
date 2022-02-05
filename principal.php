@@ -29,28 +29,54 @@ include ('ValidarLogin.php');
         </header>
 
         <div class="main">
-            <form action="cadastrar.php" class="form-group">
+            <form action="cadastrar.php" class="form-group needs-validation" method="post" novalidate>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">ID:</span>
                     <input type="text" name="id" class="form-control" aria-label="Username" aria-describedby="basic-addon1" readonly>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">NOME:</span>
-                    <input type="text" name="nome" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="nome" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                      Campo Obrigatorio!!
+                  </div>
+                  <div class="valid-feedback">
+                      Ok
+                  </div>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">LOGIN:</span>
-                    <input type="text" name="login" class="form-control"  aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="text" name="login" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                      Campo Obrigatorio!!
+                  </div>
+                  <div class="valid-feedback">
+                      Ok
+                  </div>
+                  </div>
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1">EMAIL:</span>
+                    <input type="email" name="email" class="form-control"  aria-label="Username" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                      Campo Obrigatorio!!
+                  </div>
+                  <div class="valid-feedback">
+                      Ok
+                  </div>
                   </div>
                   <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1">SENHA:</span>
-                    <input type="password" name="senha" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                    <input type="password" name="senha" class="form-control" aria-label="Username" aria-describedby="basic-addon1" required>
+                    <div class="invalid-feedback">
+                      Campo Obrigatorio!!
+                  </div>
+                  <div class="valid-feedback">
+                      Ok
+                  </div>
                   </div>
                   <div class="button-group">
-                    <button type="button" class="btn btn-success">SALVAR</button>
+                    <button type="submit" class="btn btn-success">SALVAR</button>
                     <button type="button" class="btn btn-secondary">LIMPAR</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">PESQUISAR</button>
                   </div>
             </form>
 
@@ -64,7 +90,7 @@ include ('ValidarLogin.php');
                         <th>ID</th>
                         <th>NOME</th>
                         <th>LOGIN</th>
-                        <th>SENHA</th>
+                        <th>EMAIL</th>
                     </thead>
                     <tbody>
     
@@ -80,7 +106,29 @@ include ('ValidarLogin.php');
         <?php print date('Y')?>
     </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    
+    <script>
+      (function () {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  var forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.prototype.slice.call(forms)
+    .forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+})()
+    </script>
+  </body>
 
 </html>
