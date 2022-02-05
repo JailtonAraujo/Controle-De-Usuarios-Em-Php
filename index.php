@@ -33,9 +33,8 @@ session_start();
                 <small></small>
             </div>
             <input id="btn" type="submit" value="Logar">
-<<<<<<< Updated upstream
-            <p id = "msg-alert"><?php session_start(); echo $_SESSION['msg'];?></p>
-=======
+
+
             <?php 
                 if(isset($_SESSION['nao-autenticado'])):
             ?>
@@ -43,7 +42,6 @@ session_start();
             <?php
                 endif;
             ?>
->>>>>>> Stashed changes
         </form>
        
     </div>

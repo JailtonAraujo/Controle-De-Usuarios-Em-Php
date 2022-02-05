@@ -1,13 +1,7 @@
 <?php
 session_start();
-<<<<<<< Updated upstream
 
 include ('ValidarLogin.php');
-
-echo $_SESSION['usuario'];
-?>
-=======
-include 'validarlogin.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,4 +18,4 @@ include 'validarlogin.php';
 <a href="logout.php">Sair</a>
 </body>
 </html>
->>>>>>> Stashed changes
+
