@@ -22,12 +22,14 @@ input_senha.addEventListener('input', (e)=>{
     if(senhaValue === ""){
         invalid(input_senha, "Campo obrigatorio!");
         
-
-    }else if(senhaValue.length < 8){
+        
+    } 
+    /*
+    else if(senhaValue.length < 8){
         invalid(input_senha, "A senha deve ter mais que 8 carácteres!");
         
     }
-    
+    */
     else{
         valid(input_senha, "Ok!");
     }
@@ -53,11 +55,7 @@ form.addEventListener('submit', (e)=>{
         valid(input_senha, "Ok!");
     }
     
-    else if(senhaValue.length < 8){
-        e.preventDefault();
-        invalid(input_senha, "A senha deve ter mais que 8 caracteres!");
-        valid(input_login, "Ok!");
-    }
+   
 
     
 });

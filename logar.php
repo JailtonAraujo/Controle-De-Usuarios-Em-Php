@@ -17,7 +17,7 @@ echo $senha;
 
 //$query = "select login, idusuario from usuario where senha = md5('$senha') and login = '$usuario'";
 
-$query = "select login, id from usuario where senha = '$senha' and login = '$usuario'";
+$query = "select login, idusuario from usuario where senha = '$senha' and login = '$usuario'";
 
 
 $result = mysqli_query($conexao, $query);

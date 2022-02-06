@@ -18,3 +18,28 @@
         }, false)
       })
   })()
+
+  
+  function limparCampos(){
+      let elements = document.querySelector('form').elements;
+      
+      for(let i = 0; i <= elements.length;i++){
+          elements[i].value = '';
+      }
+  }
+
+  document.querySelector('#btn-busca').addEventListener('click', (e)=>{
+      let nomeBusca = document.querySelector('#txt-busca').value;
+      let urlAction = document.querySelector('form').action;
+
+
+      if(nomeBusca != null && nomeBusca != "" && nomeBusca.trim() != ""){
+        
+        let n = $('#txt-busca').value;
+        alert(n);
+       
+    }
+          
+      
+  });
+
