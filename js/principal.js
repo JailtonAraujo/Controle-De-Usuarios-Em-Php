@@ -35,11 +35,11 @@
 
       if(nomeBusca != null && nomeBusca != "" && nomeBusca.trim() != ""){
         
-        let n = $('#txt-busca').value;
-        alert(n);
-       
+        $.post("cadastrar.php", {buscar:nomeBusca})
+          .done(function(response){
+            console.log(response);
+          })
     }
           
       
   });
-

@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 include 'connection.php';
 
 $_SESSION['msg'] = "";
@@ -26,9 +27,11 @@ if($id == null || empty($id) || $id == 0){//SE O ID FOR NULL OU VAZIO É UM NOVO
    // $_SESSION['msg'] = "Usuario atualizado com sucesso!";
 }
 
-$busca = $_POST['busca'];
+$result =  isset($_GET["busca"]);
 
-print $busca;
+$result = "jkhk";
+
+echo $result;
 
 ?>
 
