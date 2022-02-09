@@ -95,20 +95,22 @@ if(!$_SESSION['usuario']){
             aria-describedby="button-addon2" id="txt-busca">
           <button class="btn btn-primary" type="button" id="btn-busca">BUSCAR</button>
         </div>
-        <table class="table">
-          <thead>
-            <th>ID</th>
-            <th>NOME</th>
-            <th>LOGIN</th>
-            <th>EMAIL</th>
-          </thead>
-          <tbody>
-
-          </tbody>
-        </table>
-      </div>
-
+        <div class="tblresults">
+          <table class="table" id="tblResultados">
+            <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">NOME</th>
+                <th scope="col">LOGIN</th>
+                <th scope="col">EMAIL</th>
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
     </div>
+  </div>
   </div>
 
   <footer>

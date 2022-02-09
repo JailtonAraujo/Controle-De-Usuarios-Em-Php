@@ -47,17 +47,22 @@ document.querySelector('#btn-busca').addEventListener('click', (e)=>{
     e.preventDefault();
 
     let valueBusca = document.querySelector('#txt-busca').value;
-
-    if(valueBusca !== null && valueBusca.trim() !== ''){
+    
         $.ajax({
             url: 'select.php',
             method: 'GET',
             data: {busca:valueBusca},
             dataType: 'json'
         }).done(function(result){
-            console.log(result);
+            $('#tblResultados > tbody > tr').remove();
+            
+            for(let p = 0; p < result.length;p++){
+                $('#tblResultados > tbody').append('<tr><td>'+result[p].idusuario+'</td><td>'+result[p].nome+'</td><td>'
+                +result[p].login+'</td><td>'+result[p].email+'</td> <td><button type = "button" style="border-style: none;"><img src="img/lapis.png" alt="editar"></button> '
+                +'<button type = "button" style="border-style: none;"><img src="img/lixeira.png" alt="excluir"></button>'+'</td> </tr>');
+            }
         });
-    }
+    
 });
 
 

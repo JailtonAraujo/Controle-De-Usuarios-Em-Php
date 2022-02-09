@@ -6,12 +6,10 @@ include_once 'connection.php';
 
 $parametroDeBusca = $_GET['busca'];
 
-$query = "select * from usuario where nome like upper('$parametroDeBusca%') order by nome;";
+$query = "select * from usuario where nome like upper('$parametroDeBusca%');";
 
 $result = mysqli_query($conexao, $query);
 
-//$lin = mysqli_num_rows($result);
+$rows = $result->fetch_all(MYSQLI_ASSOC);
 
-$listaDeUsuario = mysqli_fetch_array($result);
-
-echo $listaDeUsuarios;
+echo json_encode($rows);
