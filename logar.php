@@ -12,11 +12,6 @@ if(empty($_POST["login"]) || empty($_POST["senha"])){
 $usuario = mysqli_real_escape_string($conexao, $_POST["login"]);
 $senha = mysqli_real_escape_string($conexao, $_POST["senha"]);
 
-echo $usuario;
-echo $senha;
-
-//$query = "select login, idusuario from usuario where senha = md5('$senha') and login = '$usuario'";
-
 $query = "select login, idusuario from usuario where senha = '$senha' and login = '$usuario'";
 
 

@@ -6,7 +6,16 @@ include_once 'connection.php';
 
 $parametroDeBusca = $_GET['busca'];
 
-$query = "select * from usuario where nome like upper('$parametroDeBusca%');";
+$query = "";
+
+if($parametroDeBusca == 'nome'){
+$nome = $_GET['nome'];    
+$query = "select * from usuario where nome like upper('$nome%');";
+}
+else if($parametroDeBusca == 'id'){
+    $id = $_GET['id'];
+    $query = "select * from usuario where idusuario = $id;";
+}
 
 $result = mysqli_query($conexao, $query);
 

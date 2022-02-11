@@ -93,9 +93,9 @@ if(!$_SESSION['usuario']){
         <div class="input-group mb-3">
           <input type="text" class="form-control" placeholder="NOME" aria-label="Recipient's username"
             aria-describedby="button-addon2" id="txt-busca">
-          <button class="btn btn-primary" type="button" id="btn-busca">BUSCAR</button>
+          <button class="btn btn-primary" type="button" id="btn-busca" onclick="buscarUsuario();">BUSCAR</button>
         </div>
-        <div class="tblresults">
+        <div class="tblresults" style="height: 80%; overflow:scroll;">
           <table class="table" id="tblResultados">
             <thead>
               <tr>
@@ -109,6 +109,7 @@ if(!$_SESSION['usuario']){
             </tbody>
           </table>
         </div>
+        <p id="cont"></p>
     </div>
   </div>
   </div>

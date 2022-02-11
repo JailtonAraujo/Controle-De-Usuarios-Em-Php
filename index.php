@@ -15,9 +15,7 @@ session_start();
 
     <div class="container">
         <form action="logar.php" id="form" method="post">
-            
-            <header><h2>LOGIN</h2></header>
-            
+            <h2>LOGIN</h2>
             <div class="form-control">
                 <label for="login">Login:</label>
 
