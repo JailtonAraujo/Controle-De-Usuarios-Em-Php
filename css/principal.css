@@ -92,6 +92,8 @@ footer{
     display: flex;
     flex-direction: column;
     margin-top: 20px;
+    
+    
 }
 
 .input-group{
@@ -100,4 +102,15 @@ footer{
 
 form{
     width: 50%;
+}
+
+.paginacao{
+    width: 100%;
+}
+
+
+ul{
+    max-width: 100%;
+    display: flexbox;
+    flex-wrap: wrap;
 }

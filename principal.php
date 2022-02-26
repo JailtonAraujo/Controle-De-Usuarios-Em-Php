@@ -32,16 +32,16 @@ if(!$_SESSION['usuario']){
     </header>
 
     <div class="main">
-      <form action="" class="form-group needs-validation" method="post" id="form-cadastro">
+      <form action="select.php" class="form-group needs-validation" method="post" id="form-cadastro">
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">ID:</span>
-          <input type="text" name="id" id="id" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-            readonly>
+          <input type="text" name="id" id="id" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" readonly>
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">NOME:</span>
-          <input type="text" name="nome" class="form-control" id="nome" aria-label="Username" aria-describedby="basic-addon1"
-            required>
+          <input type="text" name="nome" class="form-control" id="nome" aria-label="Username"
+            aria-describedby="basic-addon1" required>
           <div class="invalid-feedback">
             Campo Obrigatorio!!
           </div>
@@ -51,8 +51,8 @@ if(!$_SESSION['usuario']){
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">LOGIN:</span>
-          <input type="text" name="login" id="login" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-            required>
+          <input type="text" name="login" id="login" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required>
           <div class="invalid-feedback">
             Campo Obrigatorio!!
           </div>
@@ -62,8 +62,8 @@ if(!$_SESSION['usuario']){
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">EMAIL:</span>
-          <input type="email" name="email" id="email" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-           required>
+          <input type="email" name="email" id="email" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required>
           <div class="invalid-feedback">
             Campo Obrigatorio!!
           </div>
@@ -73,8 +73,8 @@ if(!$_SESSION['usuario']){
         </div>
         <div class="input-group mb-3">
           <span class="input-group-text" id="basic-addon1">SENHA:</span>
-          <input type="password" name="senha" id="senha" class="form-control" aria-label="Username" aria-describedby="basic-addon1"
-            required>
+          <input type="password" name="senha" id="senha" class="form-control" aria-label="Username"
+            aria-describedby="basic-addon1" required>
           <div class="invalid-feedback">
             Campo Obrigatorio!!
           </div>
@@ -83,10 +83,10 @@ if(!$_SESSION['usuario']){
           </div>
         </div>
         <div class="button-group">
-          <button type="submit" id="btn-salvar" class="btn btn-success" >SALVAR</button>
+          <button type="submit" id="btn-salvar" class="btn btn-success">SALVAR</button>
           <button type="button" class="btn btn-secondary" id="btn-limpar" onclick="limparCampos();">LIMPAR</button>
         </div>
-        <div id= "resposta" style="color: red; margin-top: 8px;"></div>
+        <div id="resposta" style="color: red; margin-top: 8px;"></div>
       </form>
 
       <div class="container-table">
@@ -95,7 +95,7 @@ if(!$_SESSION['usuario']){
             aria-describedby="button-addon2" id="txt-busca">
           <button class="btn btn-primary" type="button" id="btn-busca" onclick="buscarUsuario();">BUSCAR</button>
         </div>
-        <div class="tblresults" style="height: 80%; overflow:scroll;">
+        <div class="tblresults" style="height: 70%; overflow:scroll;">
           <table class="table" id="tblResultados">
             <thead>
               <tr>
@@ -110,8 +110,15 @@ if(!$_SESSION['usuario']){
           </table>
         </div>
         <p id="cont"></p>
+        <div class="paginacao">
+          <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm" id="ulPaginado">
+             
+            </ul>
+          </nav>
+        </div>
+      </div>
     </div>
-  </div>
   </div>
 
   <footer>
@@ -122,4 +129,5 @@ if(!$_SESSION['usuario']){
   <script src="js/jQuery/jquery-3.6.0.js"></script>
   <script src="js/script.js"></script>
 </body>
+
 </html>

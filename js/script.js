@@ -45,21 +45,39 @@ function limparCampos(){
 function buscarUsuario(){
 
     let valueBusca = document.querySelector('#txt-busca').value;
+    const url = 'select.php';
     
         $.ajax({
-            url: 'select.php',
+            url: url,
             method: 'GET',
             data: {busca:"nome", nome:valueBusca},
             dataType: 'json'
         }).done(function(result){
             $('#tblResultados > tbody > tr').remove();
-            
-            for(let p = 0; p < result.length;p++){ 
+
+            console.log(result);
+
+            for(let p = 0; p < (result.length-1);p++){ 
                 $('#tblResultados > tbody').append('<tr><td>'+result[p].idusuario+'</td><td>'+result[p].nome+'</td><td>'
                 +result[p].login+'</td><td>'+result[p].email+'</td> <td><button type = "button" style="border-style: none;" onclick="preencheInputs('+result[p].idusuario+');"><img src="img/lapis.png" alt="editar"></button> '
                 +'<button type = "button" style="border-style: none;" onclick = "deletarUsuario('+result[p].idusuario+');"><img src="img/lixeira.png" alt="excluir"></button>'+'</td> </tr>');
             }
-            document.querySelector('#cont').textContent = `Resultados : ${result.length}`;
+
+            let posTotal = (result.length-1);//pegando o count dos elementos
+
+            console.log(result[posTotal].total);
+
+            let paginas = (paginar(Number(result[posTotal].total)));
+            let urlAction;
+            $('#ulPaginado > li').remove();
+            for(let i = 0;i<paginas;i++){
+                
+                urlAction = url+'?nome='+valueBusca+'&busca=buscaAjax&offset='+(i*5); 
+                $('#ulPaginado').append('<li class="page-item"><a class="page-link" href="#" onclick="buscarUsuarioPaginado(\''+urlAction+'\');">'+(i+1)+'</a></li>');
+            
+            }
+
+            document.querySelector('#cont').textContent = `Resultados : ${result[posTotal].total}`;
         });
     
 }
@@ -97,4 +115,55 @@ function preencheInputs(id){
     
 
 }
-  
+
+function paginar(total){
+    
+    totalPagina = (total/5);
+    
+    if(totalPagina>1 && totalPagina % 2 >0){
+        totalPagina++;
+    }
+
+
+    return parseInt(totalPagina);
+}
+
+
+
+function buscarUsuarioPaginado(urlAction){
+    console.log(urlAction);
+    const url = 'select.php';
+    let valueBusca = document.querySelector('#txt-busca').value;
+    $.ajax({
+        url: urlAction,
+        method: 'GET',
+        dataType: 'json'
+    }).done(function(result){
+        $('#tblResultados > tbody > tr').remove();
+
+        for(let p = 0; p < (result.length-1);p++){ 
+            $('#tblResultados > tbody').append('<tr><td>'+result[p].idusuario+'</td><td>'+result[p].nome+'</td><td>'
+            +result[p].login+'</td><td>'+result[p].email+'</td> <td><button type = "button" style="border-style: none;" onclick="preencheInputs('+result[p].idusuario+');"><img src="img/lapis.png" alt="editar"></button> '
+            +'<button type = "button" style="border-style: none;" onclick = "deletarUsuario('+result[p].idusuario+');"><img src="img/lixeira.png" alt="excluir"></button>'+'</td> </tr>');
+        }
+
+        let posTotal = (result.length-1);//pegando o count dos elementos
+
+        console.log(result);
+        let paginas = (paginar(Number(result[posTotal].total)));
+        //let urlAction;
+
+        $('#ulPaginado > li').remove();
+        for(let i = 0;i<paginas;i++){
+           urlAction = url+'?nome='+valueBusca+'&busca=buscaAjax&offset='+(i*5); 
+                $('#ulPaginado').append('<li class="page-item"><a class="page-link" href="#" onclick="buscarUsuarioPaginado(\''+urlAction+'\');">'+(i+1)+'</a></li>');
+        
+        }
+
+        document.querySelector('#cont').textContent = `Resultados : ${result[posTotal].total}`;
+    });
+    
+
+}
+
+
